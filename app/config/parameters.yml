@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: sql121.main-hosting.eu
+    database_port: 3306
+    database_name: u510712524_suc
+    database_user: u510712524_utez
+    database_password: q76SGMdGJRptdlvEDK
+    mailer_transport: gmail
+    mailer_host: ~
+    mailer_user: symfony.cdsutez
+    mailer_password: nikolas123
+    secret: ThisTokenIsNotSoSecretChangeIt
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true

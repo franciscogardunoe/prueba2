@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CentroProduccion" table="centro_produccion">
+    <indexes>
+      <index name="fk_centro_produccion_ciudad1_idx" columns="ciudad"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="45" nullable="false"/>
+    <field name="calleNumero" type="string" column="calle_numero" length="60" nullable="false"/>
+    <field name="colonia" type="string" column="colonia" length="45" nullable="false"/>
+    <field name="codigoPostal" type="integer" column="codigo_postal" nullable="false"/>
+    <field name="longitud" type="float" column="longitud" precision="10" scale="0" nullable="false"/>
+    <field name="latitud" type="float" column="latitud" precision="10" scale="0" nullable="false"/>
+    <field name="telefono" type="string" column="telefono" length="17" nullable="false"/>
+    <field name="correoElectronico" type="string" column="correo_electronico" length="45" nullable="false"/>
+    <field name="sitioWeb" type="string" column="sitio_web" length="60" nullable="false"/>
+    <many-to-one field="ciudad" target-entity="Ciudad">
+      <join-columns>
+        <join-column name="ciudad" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

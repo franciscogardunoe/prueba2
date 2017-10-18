@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="UsuarioTipo" table="usuario_tipo">
+    <indexes>
+      <index name="fk_tipo_usuario_has_usuario_usuario1_idx" columns="usuario"/>
+      <index name="fk_tipo_usuario_has_usuario_tipo_usuario1_idx" columns="tipo_usuario"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="status" type="integer" column="status" nullable="false"/>
+    <many-to-one field="usuario" target-entity="Usuario">
+      <join-columns>
+        <join-column name="usuario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="tipoUsuario" target-entity="TipoUsuario">
+      <join-columns>
+        <join-column name="tipo_usuario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

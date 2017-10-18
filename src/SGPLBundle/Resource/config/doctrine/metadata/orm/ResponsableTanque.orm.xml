@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ResponsableTanque" table="responsable_tanque">
+    <indexes>
+      <index name="fk_responsable_tanque_persona1_idx" columns="persona"/>
+      <index name="fk_responsable_tanque_tanque1_idx" columns="tanque"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="tanque" target-entity="Tanque">
+      <join-columns>
+        <join-column name="tanque" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="persona" target-entity="Persona">
+      <join-columns>
+        <join-column name="persona" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

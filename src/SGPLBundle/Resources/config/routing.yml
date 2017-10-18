@@ -1,0 +1,3 @@
+sgpl_homepage:
+    path:     /
+    defaults: { _controller: SGPLBundle:Default:index }
